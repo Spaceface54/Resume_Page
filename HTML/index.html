@@ -5,6 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Nat Chu</title>
     <style>
+      :root {
+        --wing-color: #426592cb;
+        --wing-width: 6vw;
+        --box-distance: 5vw;
+      }
       * {
         margin: 0;
         padding: 0;
@@ -13,22 +18,114 @@
       body {
         background-color: burlywood;
         position: relative;
-        border-style: dashed;
+        /* border-style: dashed;
+        border-color: red;
+        border-width: 3px; */
+      }
+      main {
+        min-height: 2000px;
+      }
+      /* Make the background stay put */
+      .background {
+        content: "";
+        position: fixed;
+
         background-position: center;
         background-size: cover;
-        background-image: url("../Images/IMG_4350 (1).jpg");
+        background-image: url("../Images/IMG_5771.jpg");
+        background-color: aquamarine;
+        width: 100vw;
         height: 100vh;
+        z-index: -100;
+        /* border-style: dashed; */
+        /* border-color: red;
+        border-width: 3px; */
+      }
+
+      /* Add changes to both wings */
+      .background div {
+        content: "";
+        position: fixed;
+        background-color: var(--wing-color);
+        height: 100vh;
+        width: var(--wing-width);
+        border-radius: 10px;
+        top: 0;
+      }
+      /* specific wing locations */
+      .left_wing {
+        left: 0;
+      }
+      .right_wing {
+        left: 94vw;
+      }
+
+      /* Format Portfolio Cards */
+      .card_box {
+        --box-width: 30vw;
+        position: absolute;
+        width: var(--box-width);
+        height: 40vh;
+        top: 25vh;
+        border-style: dashed;
+        border-color: greenyellow;
+        border-width: 3px;
+      }
+      .left_cards {
+        left: calc(var(--wing-width) + 5vw);
+      }
+      .right_cards {
+        left: calc(calc(95vw - var(--box-width)) - var(--wing-width));
+      }
+      .port_cards {
+        display: grid;
+        border-style: dashed;
         border-color: red;
         border-width: 3px;
+        place-content: center center;
+
+        gap: 2rem;
+      }
+
+      .port_cards a {
+        display: block;
+        background-color: #ebe4d5;
+        border-color: #a2a2a2;
+        border-width: 3px;
+        border-style: solid;
+        text-decoration: none;
+        text-align: center;
+        border-radius: 20%;
       }
     </style>
   </head>
   <body>
-    <p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi ea eos
-      cumque architecto! Laboriosam repellendus in, reiciendis nobis quod omnis
-      aspernatur minus cumque veritatis! Eaque sapiente nostrum mollitia fugiat
-      hic.
-    </p>
+    <div class="background">
+      <div class="left_wing"></div>
+      <div class="right_wing"></div>
+    </div>
+    <header class="banner">
+      <span>Nathaniel (Nat) Chu</span>
+      <span>Game Designer</span>
+    </header>
+
+    <main>
+      <div class="card_box left_cards">
+        <nav class="port_cards">
+          <a href="Shork Tank">Shork Tank</a>
+          <a href="Time Sandal: The Sandal Of Time"
+            >Time Sandal: The Sandal Of Time</a
+          >
+          <a href="Idee">Idee</a>
+        </nav>
+      </div>
+      <div class="card_box right_cards">
+        <nav class="port_cards">
+          <a href="Markus's Miasma">Markus's Miasma</a>
+          <a href="Wizard Wobble">Wizard Wobble</a>
+          <a href="Origin of Anima">Origin of Anima</a>
+        </nav>
+      </div>
+    </main>
   </body>
 </html>
