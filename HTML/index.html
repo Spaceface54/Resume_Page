@@ -22,8 +22,28 @@
         border-color: red;
         border-width: 3px; */
       }
+      /* Format Page Layout */
       main {
-        min-height: 2000px;
+        display: grid;
+        grid-template-columns: var(--wing-width) 1fr 1fr 2fr 1fr 1fr var(
+            --wing-width
+          );
+        grid-template-rows: 1000px 200px;
+
+        grid-template-areas:
+          ". lc lc pt rc rc ."
+          ". tx tx tx tx tx .";
+
+        gap: 10px;
+        align-items: center;
+      }
+      .portrait {
+        grid-area: pt;
+        width: 100%;
+      }
+      .text {
+        grid-area: tx;
+        place-content: top center;
       }
       /* Make the background stay put */
       .background {
@@ -62,33 +82,37 @@
 
       /* Format Portfolio Cards */
       .card_box {
-        --box-width: 30vw;
-        position: absolute;
-        width: var(--box-width);
-        height: 40vh;
-        top: 25vh;
-        border-style: dashed;
+        /* border-style: dashed;
         border-color: greenyellow;
-        border-width: 3px;
+        border-width: 3px; */
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr;
       }
       .left_cards {
-        left: calc(var(--wing-width) + 5vw);
+        grid-area: lc;
       }
       .right_cards {
-        left: calc(calc(95vw - var(--box-width)) - var(--wing-width));
+        grid-area: rc;
       }
       .port_cards {
-        display: grid;
-        border-style: dashed;
+        display: block;
+        max-height: 100%;
+        grid-auto-flow: row;
+        margin: 10px;
+        /* border-style: dashed;
         border-color: red;
-        border-width: 3px;
+        border-width: 3px; */
         place-content: center center;
-
-        gap: 2rem;
+        gap: 3px;
       }
 
       .port_cards a {
         display: block;
+        margin: auto;
+        margin-top: 20px;
+        aspect-ratio: 2.5/3.5;
+        width: min(100%, 15rem);
         background-color: #ebe4d5;
         border-color: #a2a2a2;
         border-width: 3px;
@@ -112,20 +136,37 @@
     <main>
       <div class="card_box left_cards">
         <nav class="port_cards">
-          <a href="Shork Tank">Shork Tank</a>
+          <a href="Shork Tank"></a>
           <a href="Time Sandal: The Sandal Of Time"
             >Time Sandal: The Sandal Of Time</a
           >
+        </nav>
+        <nav class="port_cards">
           <a href="Idee">Idee</a>
         </nav>
       </div>
+      <img src="/Images/Portrait.png" alt="Portrait" class="portrait" />
       <div class="card_box right_cards">
+        <nav class="port_cards">
+          <a href="Origin of Anima">Origin of Anima</a>
+        </nav>
         <nav class="port_cards">
           <a href="Markus's Miasma">Markus's Miasma</a>
           <a href="Wizard Wobble">Wizard Wobble</a>
-          <a href="Origin of Anima">Origin of Anima</a>
         </nav>
       </div>
+      <p class="text">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt
+        nesciunt labore quos recusandae natus, harum deserunt commodi blanditiis
+        tempora corporis repellat quod id amet omnis, eligendi fugiat
+        consectetur vitae nam. Fugit, doloremque ratione reprehenderit
+        consequuntur tempore iste nemo nihil. Sed error rerum optio illo dicta
+        blanditiis provident commodi ratione fugit quisquam eum, dolorum
+        explicabo libero iure veniam modi velit cumque. Perspiciatis sed quae
+        assumenda maxime, atque officia, dolorem sequi esse nulla commodi velit
+        modi quas ex reiciendis ipsam fuga odit rem. Laudantium temporibus
+        quibusdam deserunt blanditiis libero, ut dolor officia.
+      </p>
     </main>
   </body>
 </html>
