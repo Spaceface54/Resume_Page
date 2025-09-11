@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nat Chu</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Gabarito:wght@400..900&display=swap");
+      :root {
+        --banner-color: #5a5a5a;
+        --box-inner-color: linear-gradient(to bottom right, #b37c8b, #8e6d91);
+        --border-color-crimson: #b37c8b;
+        --banner-text-color: #ebebeb;
+        --shadow: 3px 4px #0000005e;
+        --card-title-color: linear-gradient(to right, #ebebeb, #b2b2b2);
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Gabarito", Courier, monospace;
+        text-align: center;
+      }
+      .Background {
+        background-image: url("../Images/IMG_5771.jpg");
+        position: fixed;
+        top: 0;
+        left: 0;
+        background-size: cover;
+        background-position: center;
+        width: 100vw;
+        height: 100vh;
+        z-index: -100;
+      }
+
+      /* -------------------Style Header--------------- */
+
+      .Header_Banner {
+        --banner-padding: max(0.7rem, 1.5vh);
+        background-color: var(--banner-color);
+        border-radius: 0px 0px 10px 10px;
+        position: fixed;
+        top:0;
+        width: 100%;
+        box-shadow: var(--shadow);
+      }
+      .Header_Banner h1{
+        color: var(--banner-text-color);
+        margin: var(--banner-padding);
+        font-weight: normal;
+      }
+      .Menu {
+        display: none;
+      }
+      .Menu_Items {
+        display: flex;
+        flex-direction: column;
+        list-style-type: none;
+      }
+      .Menu_Items li {
+        border-style: solid;
+        border-width: 2px;
+        border-color: var(--banner-text-color);
+        border-left: none;
+        border-right: none;
+        border-bottom: none;
+        padding-top: var(--banner-padding);
+        padding-bottom: var(--banner-padding);
+      }
+      .Menu_Items li a {
+        text-decoration: none;
+        color: var(--banner-text-color);
+        display: block;
+        text-justify: center;
+      }
+
+      /* -------------------Style Main--------------- */
+      main {
+      }
+      main h2 {
+        margin: 1rem 2rem;
+        color: var(--banner-color);
+      }
+      main p {
+        background-image: var(--box-inner-color);
+        border-width: 3px;
+        border-style: solid;
+        box-shadow: var(--shadow);
+        border-color: var(--banner-color);
+        margin: 1rem 2rem;
+        border-radius: 10px;
+        padding: 0.4rem;
+      }
+      /* -------------------Style About Me--------------- */
+      .About_Me img {
+        display: block;
+        width: 50vw;
+        margin: auto;
+        margin-top: 10vh;
+      }
+      /* -------------------Style Portfolio--------------- */
+      .Port_Items {
+        display: flex;
+        flex-direction: column;
+        list-style-type: none;
+      }
+      .Port_Items li {
+        margin: 2rem 3rem;
+      }
+      .Card {
+        border-style: solid;
+        border-radius: 15px;
+        border-color: black;
+        border-width: 8px;
+        aspect-ratio: 3.5 / 2.5;
+        box-shadow: var(--shadow);
+        /* margin: 2rem 3rem; */
+      }
+
+      .Display,
+      .Type,
+      .Title,
+      .Card_Text {
+        border-style: solid;
+        border-width: 2px;
+        border-radius: 20px;
+        border-color: var(--banner-color);
+      }
+
+      .Title,
+      .Type {
+        background-image: var(--card-title-color);
+        width: 95%;
+        margin: auto;
+      }
+      .Title h2,
+      .Type h3 {
+        margin: 0;
+        width: 100%;
+        text-align: left;
+        padding: 0.3rem 1rem;
+        font-weight: bold;
+      }
+      .Title {
+        margin-top: 7px;
+      }
+      .Title h2 {
+        display: flex;
+        justify-content: space-between;
+        font-size:larger;
+      }
+      .Type h3{
+        font-size: medium;
+        color: var(--banner-color)
+      }
+      .Display {
+        aspect-ratio: 1 / 1;
+        width: 93%;
+        margin: 3px auto;
+        background-image: url("/Images/IMG_4351.jpg");
+        background-position: center;
+        background-size: cover;
+      }
+      .Card_Text {
+        box-shadow: none;
+        background-image: none;
+        color: var(--banner-color);
+        margin: auto;
+        margin-bottom: 7px;
+        margin-top: 1px;
+        width: 93%;
+        padding: 0.7rem;
+        background-color: var(--banner-text-color);
+      }
+
+      /* individual cards */
+      .Markus{
+
+      }
+      .Shork{
+        background-image: linear-gradient(to bottom, #729ffc, #405ac1);
+      }
+      .OOA{
+
+      }
+      .Wizard{
+
+      }
+      .Idee{
+
+      }
+      .Sandal{
+
+      }
+      /* -------------------Style Footer--------------- */
+      footer {
+        background-color: var(--banner-color);
+        border-radius: 10px 10px 0px 0px;
+        bottom: -10px;
+        width: 100%;
+        box-shadow: var(--shadow);
+      }
+      footer h2 {
+        padding: 0.3rem;
+        font-size: 1rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="Background"></div>
+    <section class="Header_Banner">
+      <h1>Nathaniel (Nat) Chu</h1>
+      <nav class="Menu">
+        <ul class="Menu_Items">
+          <li><a href="#">About Me</a></li>
+          <li><a href="#">Resume</a></li>
+          <li><a href="#">Portfolio</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </nav>
+    </section>
+    <main>
+      <section class="About_Me">
+        <img src="/Images/Portrait.png" alt="Portrait of Nat Chu" />
+        <h2>About Me</h2>
+        <p>
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsa aperiam
+          eaque amet odit eveniet omnis dignissimos aliquam corrupti iure natus
+          tenetur perspiciatis vero sunt obcaecati, placeat provident veritatis
+          quam repellendus.
+        </p>
+      </section>
+      <section class="Resume">
+        <h2>Resume</h2>
+        <p>
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quos esse
+          voluptatem molestiae! Neque porro possimus aliquam velit consequatur,
+          deleniti, ipsum ex, necessitatibus perspiciatis quod quo corrupti vel
+          sunt in molestiae?
+        </p>
+      </section>
+      <section class="Portfolio">
+        <h2>Portfolio</h2>
+        <nav>
+          <ul class="Port_Items">
+            <li>
+              <div class="Card Markus">
+                <div class="Title">
+                  <h2>Markus's Miasma <span class="Icon">🌲</span></h2>
+                </div>
+                <div class="Display"></div>
+                <div class="Type">
+                  <h3>Puzzle Narrative Horror</h3>
+                </div>
+                <p class="Card_Text">
+                    Welcome to UCSC—well, kind of. Explore a twisted version of
+                    UCSC, uncovering cryptic clues to piece together the
+                    disturbing truth behind one man's obsession.
+                  </p>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="Card Shork">
+                <div class="Title">
+                  <h2>Shork Tank <span class="Icon">🦈</span></h2>
+                </div>
+                <div class="Display"></div>
+                <div class="Type">
+                  <h3>Feed & Grow-Like Bullet Hell</h3>
+                </div>
+                <p class="Card_Text">
+                  You are a Shork. This is your tank. Defend your home from
+                  these interlopers! Swim, Eat, Die, Repeat!
+                </p>
+              </div>
+            </li>
+            <li>
+              <div class="Card OOA">
+                <div class="Title">
+                  <h2>Origin of Anima <span class="Icon">👁️</span></h2>
+                </div>
+                <div class="Display"></div>
+                <div class="Type">
+                  <h3>TTRPG</h3>
+                </div>
+                <p class="Card_Text">
+                  OOA is an Adventure within the soul itself, focused on silly
+                  shenanigans and player freedom. Anything you imagine can
+                  happen!
+                </p>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="Card Wizard">
+                <div class="Title">
+                  <h2>Wizard Wobble <span class="Icon">🧙</span></h2>
+                </div>
+                <div class="Display"></div>
+                <div class="Type">
+                  <h3>Build-It-Yourself Platformer</h3>
+                </div>
+                <p class="Card_Text">
+                  Jump through a hell of your own creation, placing both
+                  platforms and obstacles to get to the window of your wizard
+                  tower. All because you forgot your keys. Whoops!
+                  </p>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="Card Idee">
+                <div class="Title">
+                  <h2>Idee <span class="Icon">✨</span></h2>
+                </div>
+                <div class="Display"></div>
+                <div class="Type">
+                  <h3>Systemic Solo Card Game</h3>
+                </div>
+                <p class="Card_Text">
+                    Move your eyes, watch the cards, and cast spells. Your goal:
+                    Cast the Ultmate Spell and achive omnipotence. Will you be
+                    able to cast the spell before it all falls to corruption?
+                  </p>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="Card Sandal">
+                <div class="Title">
+                  <h2>Time Sandal (TSOT) <span class="Icon">⌛</span></h2>
+                </div>
+                <div class="Display"></div>
+                <div class="Type">
+                  <h3>2D Puzzle Platformer</h3>
+                </div>
+                <p class="Card_Text">
+                    Explore an ancient temple with the power of your time
+                    flipping flip-flop. Best expirience on mobile.
+                  </p>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </nav>
+      </section>
+      <section class="Contact">
+        <h2>Socials & Contact</h2>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero hic
+          nemo nisi, reiciendis rerum magnam obcaecati vero commodi labore
+          cupiditate animi, dignissimos veniam eveniet corporis repellat.
+          Perferendis impedit perspiciatis unde?
+        </p>
+      </section>
+    </main>
+    <footer>
+      <h2>Nat Chu Copyright</h2>
+    </footer>
+    <script src="/site.js"></script>
+  </body>
+</html>
