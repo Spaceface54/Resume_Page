@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Nat Chu</title>
+    <script src="https://kit.fontawesome.com/8c41f15010.js" crossorigin="anonymous"></script>
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Gabarito:wght@400..900&display=swap");
       :root {
@@ -12,6 +13,7 @@
         --border-color-crimson: #b37c8b;
         --banner-text-color: #ebebeb;
         --shadow: 3px 4px #0000005e;
+        --hover-shadow: 3px 9px #0000008a;
         --card-title-color: linear-gradient(to right, #ebebeb, #b2b2b2);
       }
       * {
@@ -20,6 +22,9 @@
         box-sizing: border-box;
         font-family: "Gabarito", Courier, monospace;
         text-align: center;
+      }
+      html{
+        scroll-behavior: smooth;
       }
       .Background {
         background-image: url("../Images/IMG_5771.jpg");
@@ -32,7 +37,7 @@
         height: 100vh;
         z-index: -100;
       }
-
+       
       /* -------------------Style Header--------------- */
 
       .Header_Banner {
@@ -42,12 +47,19 @@
         position: fixed;
         top:0;
         width: 100%;
+        z-index: 100;
         box-shadow: var(--shadow);
+      }
+      .Header_Title{
+        margin: var(--banner-padding);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
       }
       .Header_Banner h1{
         color: var(--banner-text-color);
-        margin: var(--banner-padding);
         font-weight: normal;
+        font-size: Large;
       }
       .Menu {
         display: none;
@@ -64,16 +76,19 @@
         border-left: none;
         border-right: none;
         border-bottom: none;
-        padding-top: var(--banner-padding);
-        padding-bottom: var(--banner-padding);
+        height: 3rem;
       }
       .Menu_Items li a {
         text-decoration: none;
         color: var(--banner-text-color);
         display: block;
         text-justify: center;
+        padding: 1rem;
       }
-
+      .About_Me, .Resume, .Portfolio, .Contact{
+        padding: 7rem 0rem;
+      }
+      
       /* -------------------Style Main--------------- */
       main {
       }
@@ -81,7 +96,7 @@
         margin: 1rem 2rem;
         color: var(--banner-color);
       }
-      main p {
+      main p, .Contact_List, .Resume_Disp, .Card_Aside, .Note_List {
         background-image: var(--box-inner-color);
         border-width: 3px;
         border-style: solid;
@@ -90,6 +105,28 @@
         margin: 1rem 2rem;
         border-radius: 10px;
         padding: 0.4rem;
+        
+      }
+      :is(main p, .Contact_List, .Resume_Disp, .Note_List, .Card):hover{
+        transform: translateY(-3px);
+        box-shadow: var(--hover-shadow);
+      }
+      /* Style Link Buttons */
+      .lb{
+        text-decoration: none;
+        color: var(--banner-color);
+        background-image: var(--card-title-color);
+        border-style: solid;
+        border-width: 2px;
+        border-radius: 20px;
+        border-color: var(--banner-color);
+        padding: 1rem;
+        display: flex;
+        gap: 1rem;
+      }
+      .lb:hover{
+        transform: translateY(2px);
+
       }
       /* -------------------Style About Me--------------- */
       .About_Me img {
@@ -98,6 +135,7 @@
         margin: auto;
         margin-top: 10vh;
       }
+      /* -------------------Style Resume--------------- */
       /* -------------------Style Portfolio--------------- */
       .Port_Items {
         display: flex;
@@ -114,6 +152,8 @@
         border-width: 8px;
         aspect-ratio: 3.5 / 2.5;
         box-shadow: var(--shadow);
+        cursor: pointer;
+        transition: transform .16s ease, box-shadow .16s ease;
         /* margin: 2rem 3rem; */
       }
 
@@ -161,6 +201,19 @@
         background-position: center;
         background-size: cover;
       }
+      .Display i{
+        display: flex;
+        width: 100%;
+        height: 100%;
+        justify-content: center;
+        align-items: center;
+      }
+      .Display i::before{
+        display: block;
+        font-size: 150px;
+        text-align: center;
+        color: rgba(138, 138, 138, 0.952);
+      }
       .Card_Text {
         box-shadow: none;
         background-image: none;
@@ -172,26 +225,100 @@
         padding: 0.7rem;
         background-color: var(--banner-text-color);
       }
-
-      /* individual cards */
-      .Markus{
-
+      /* Asides */
+      .Card_Aside{ 
+        position: fixed;
+        background-image: linear-gradient(to bottom, #fa8888, #664848);
+        content: "";
+        border-color: var(--banner-color);
+        width: 65vw;
+        height: 80vh;
+        top: 0;
+        left: 100vw;
+        margin: 10vh 0;
+        border-radius: 10px 0 0 10px;
+        border-right: none;
+        padding: 0.2rem;
+        display: flex;
+        flex-direction: column;
+        align-content: center;
+        z-index: 90;
+        /* transform: translateX(-65vw); */
       }
-      .Shork{
+      .Card_Aside h2{
+        margin: 1rem 0.2rem;
+      }
+      .Card_Aside p{
+        background-image: none;
+        margin: 1rem;
+      }
+      .Note_List{
+        display: flex; 
+        background-image: none;
+        border-color: var(--border-color-crimson);
+        margin: 1rem;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.3rem;
+      }
+      .Note_List li{
+        margin: 0 1rem;
+        width: 80%;
+        color: var(--banner-text-color);
+        text-align: left;
+      }
+      .Game{
+        display: none;
+        width: 100%;
+        height: 100%;
+      }
+      /* individual cards */
+      .Markus .Card{
+        background-image: linear-gradient(to bottom, #b44fa0, #080405);
+      }
+      .Markus .Display{
+        background-image: url(https://img.youtube.com/vi/xxYVIywezPc/hqdefault.jpg);
+      }
+      .Shork .Card{
         background-image: linear-gradient(to bottom, #729ffc, #405ac1);
       }
-      .OOA{
-
+      .Shork .Display{
+        background-image: url("/Images/Shork_Tank.jpg");
       }
-      .Wizard{
-
+      .OOA .Card{
+        background-image: linear-gradient(to bottom, #f9d359, #eae0d7);
       }
-      .Idee{
-
+      .OOA .Display{
+        background-image: url(/Images/OOA_icon.jpg);
       }
-      .Sandal{
-
+      .Wizard .Card{
+        background-image: linear-gradient(to bottom, #f6b5fe, #fac5c7);
       }
+      .Wizard .Display{
+        background-image: url("/Images/Wizard_Wobble.jpg");
+      }
+      .Idee .Card{
+        background-image: linear-gradient(to bottom right, #df2b28, #a1660c);
+      }
+      .Idee .Display{
+        background-image: url("/Images/Idee.png");
+      }
+      .Sandal .Card{
+        background-image: linear-gradient(to bottom right, #c2a25c, #332819);
+      }
+      .Sandal .Display{
+        background-image: url(/Images/Sandal.PNG);
+      }
+      /* -------------------Style Contact--------------- */
+      .Contact_List{
+        margin-top: 10vh;
+        margin-bottom: 20vh;
+        padding: 1.5rem;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+      }
+      
       /* -------------------Style Footer--------------- */
       footer {
         background-color: var(--banner-color);
@@ -204,47 +331,144 @@
         padding: 0.3rem;
         font-size: 1rem;
       }
+    
+
+      /* -----------------Style Diffrent Screens--------------- */
+
+      /* Medium 768px*/
+      @media screen and (min-width: 768px) {
+        .About_Me, .Resume, .Portfolio, .Contact{
+        padding: 4rem 0rem;
+      }
+        .About_Me{
+          padding-top: 6rem;
+          display: grid;
+          grid-template-columns: 0.6fr 1fr;
+          grid-template-rows: 0.5fr 2fr;
+          align-content: center;
+        }
+        .About_Me h2{
+          grid-column: 1 / 3;
+          grid-row:1;
+        }
+        .About_Me p{
+          height: 70%;
+          margin: auto;
+        }
+        .About_Me img{
+          width: 30vw;
+          margin: auto;
+        }
+        .Resume_Disp{
+          width: 70vw;
+          margin: auto;
+        }
+        .Port_Items{
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          grid-template-rows: repeat(1fr, 3);
+        }
+        .Card_Aside{
+          width: 40vw
+        }
+      }
+      /* Large 992px */
+      @media screen and (min-width: 992px) {
+        .Header_Banner{
+          width: 80vw;
+          margin: 0 10vw;
+        }
+         .About_Me, .Resume, .Portfolio, .Contact{
+        padding: 8rem 0rem;
+         }
+         .About_Me{
+          padding-top: 10rem;
+         }
+        .Resume{
+          width: 60vw;
+          height: 90vw;
+          margin: auto;
+        }
+        .Resume_Disp{
+          display: flex;
+          flex-direction: column;
+          gap: 6px;
+          width: 100%;
+          height:100%;
+        }
+        .Resume_Disp object{
+          height: 100%;
+        }
+        .Port_Items{
+          grid-template-columns: 1fr 1fr 1fr;
+          grid-template-rows: 1.5fr 1.5fr 1.5fr;
+        }
+        .Port_Items li{
+          align-content: center;
+        }
+        .Game{
+          display: block;
+        }
+        .Shork{
+          grid-column: 1 / 3;
+          grid-row: 1;
+        }
+        .Wizard{
+          grid-column: 2 / 4;
+          grid-row: 2;
+        }
+        .Sandal{
+          grid-column: 1 / 3;
+          grid-row: 3;
+        }
+        .Contact_List{
+          width: 60vw;
+          margin: 20vh auto;
+        }
+        footer h2{
+          padding: 1rem;
+        }
+      }
     </style>
   </head>
   <body>
     <div class="Background"></div>
-    <section class="Header_Banner">
-      <h1>Nathaniel (Nat) Chu</h1>
+    <section class="Header_Banner" id = "Home">
+      <div class="Header_Title"><h1>Nathaniel (Nat) Chu</h1><i class="fa-solid fa-caret-down"></i></div>
       <nav class="Menu">
         <ul class="Menu_Items">
-          <li><a href="#">About Me</a></li>
-          <li><a href="#">Resume</a></li>
-          <li><a href="#">Portfolio</a></li>
-          <li><a href="#">Contact</a></li>
+          <li><a href="#About_Me">About Me</a></li>
+          <li><a href="#Resume">Resume</a></li>
+          <li><a href="#Portfolio">Portfolio</a></li>
+          <li><a href="#Contact">Contact</a></li>
         </ul>
       </nav>
     </section>
     <main>
-      <section class="About_Me">
+      <section class="About_Me" id = "About_Me">
         <img src="/Images/Portrait.png" alt="Portrait of Nat Chu" />
         <h2>About Me</h2>
         <p>
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsa aperiam
-          eaque amet odit eveniet omnis dignissimos aliquam corrupti iure natus
-          tenetur perspiciatis vero sunt obcaecati, placeat provident veritatis
-          quam repellendus.
+          <span class="Name">Nathaniel (Nat) Chu</span><span class="Degree">CS Game Design B.S @ UCSC</span>
+          I'm a Game Dev...etc
         </p>
       </section>
-      <section class="Resume">
+      <section class="Resume" id="Resume">
         <h2>Resume</h2>
-        <p>
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quos esse
-          voluptatem molestiae! Neque porro possimus aliquam velit consequatur,
-          deleniti, ipsum ex, necessitatibus perspiciatis quod quo corrupti vel
-          sunt in molestiae?
-        </p>
+        <div class="Resume_Disp">
+          <object data="/Nathaniel(Nat)_Chu_Resume.pdf" type="application/pdf" width="100%" height="500px">
+            <p>Unable to display PDF file.</p>
+          </object>
+          <a class="lb" href="/Nathaniel(Nat)_Chu_Resume.pdf"><i class="fa-solid fa-file"></i><span>Download Resume</span></a>
+        </div>
+        
       </section>
-      <section class="Portfolio">
+      <section class="Portfolio" id="Portfolio">
         <h2>Portfolio</h2>
         <nav>
           <ul class="Port_Items">
-            <li>
-              <div class="Card Markus">
+            <li class="Markus">
+              <div class="Card">
                 <div class="Title">
                   <h2>Markus's Miasma <span class="Icon">🌲</span></h2>
                 </div>
@@ -259,13 +483,26 @@
                   </p>
                 </div>
               </div>
+              <aside class="Card_Aside">
+                  <h2>Markus's Miasma</h2>
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam sit mollitia, tempora dolores ipsum, iure est, provident ex porro nihil enim id vero. Hic optio accusantium error pariatur velit a!</p>
+                  <h3>Notes:</h3>
+                  <ul class="Note_List">
+                    <li>My Role: Tech Lead and Programmer</li>
+                    <li>Development Time: 2 Weeks</li>
+                    <li>Team Size: 3</li>
+                    <li>Platform: Phaser</li>
+                    <li>Uses browser cookies to store settings</li>
+                  </ul>
+                  <nav class="Aside_Links"></nav>
+                </aside>
             </li>
-            <li>
-              <div class="Card Shork">
+            <li class="Shork">
+              <div class="Card">
                 <div class="Title">
                   <h2>Shork Tank <span class="Icon">🦈</span></h2>
                 </div>
-                <div class="Display"></div>
+                <div class="Display"><i class="fa-solid fa-circle-play"></i><iframe class="Game" frameborder="0" src="https://itch.io/embed-upload/11714188?color=ffffff" allowfullscreen="" width="1152" height="668"><a href="https://spaceface54.itch.io/shork-tank">Play Shork Tank on itch.io</a></iframe></div>
                 <div class="Type">
                   <h3>Feed & Grow-Like Bullet Hell</h3>
                 </div>
@@ -273,10 +510,24 @@
                   You are a Shork. This is your tank. Defend your home from
                   these interlopers! Swim, Eat, Die, Repeat!
                 </p>
+                
               </div>
+              <aside class="Card_Aside">
+                  <h2>Shork Tank</h2>
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam sit mollitia, tempora dolores ipsum, iure est, provident ex porro nihil enim id vero. Hic optio accusantium error pariatur velit a!</p>
+                  <h3>Notes:</h3>
+                  <ul class="Note_List">
+                    <li>My Role: Tech Lead and Programmer</li>
+                    <li>Development Time: 2 Weeks</li>
+                    <li>Team Size: 3</li>
+                    <li>Platform: Phaser</li>
+                    <li>Uses browser cookies to store settings</li>
+                  </ul>
+                  <nav class="Aside_Links"></nav>
+                </aside>
             </li>
-            <li>
-              <div class="Card OOA">
+            <li class="OOA">
+              <div class="Card">
                 <div class="Title">
                   <h2>Origin of Anima <span class="Icon">👁️</span></h2>
                 </div>
@@ -290,14 +541,28 @@
                   happen!
                 </p>
                 </div>
+                
               </div>
+              <aside class="Card_Aside">
+                  <h2>OOA</h2>
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam sit mollitia, tempora dolores ipsum, iure est, provident ex porro nihil enim id vero. Hic optio accusantium error pariatur velit a!</p>
+                  <h3>Notes:</h3>
+                  <ul class="Note_List">
+                    <li>My Role: Tech Lead and Programmer</li>
+                    <li>Development Time: 2 Weeks</li>
+                    <li>Team Size: 3</li>
+                    <li>Platform: Phaser</li>
+                    <li>Uses browser cookies to store settings</li>
+                  </ul>
+                  <nav class="Aside_Links"></nav>
+                </aside>
             </li>
-            <li>
-              <div class="Card Wizard">
+            <li class="Wizard">
+              <div class="Card">
                 <div class="Title">
                   <h2>Wizard Wobble <span class="Icon">🧙</span></h2>
                 </div>
-                <div class="Display"></div>
+                <div class="Display"><i class="fa-solid fa-circle-play"></i><iframe class="Game" frameborder="0" src="https://itch.io/embed-upload/5559068?color=333333" allowfullscreen="" width="640" height="380"><a href="https://spaceface54.itch.io/wizard-wobble">Play Wizard Wobble on itch.io</a></iframe></div>
                 <div class="Type">
                   <h3>Build-It-Yourself Platformer</h3>
                 </div>
@@ -307,10 +572,24 @@
                   tower. All because you forgot your keys. Whoops!
                   </p>
                 </div>
+                
               </div>
+              <aside class="Card_Aside">
+                  <h2>Wizard Wobble</h2>
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam sit mollitia, tempora dolores ipsum, iure est, provident ex porro nihil enim id vero. Hic optio accusantium error pariatur velit a!</p>
+                  <h3>Notes:</h3>
+                  <ul class="Note_List">
+                    <li>My Role: Tech Lead and Programmer</li>
+                    <li>Development Time: 2 Weeks</li>
+                    <li>Team Size: 3</li>
+                    <li>Platform: Phaser</li>
+                    <li>Uses browser cookies to store settings</li>
+                  </ul>
+                  <nav class="Aside_Links"></nav>
+                </aside>
             </li>
-            <li>
-              <div class="Card Idee">
+            <li class="Idee">
+              <div class="Card">
                 <div class="Title">
                   <h2>Idee <span class="Icon">✨</span></h2>
                 </div>
@@ -324,14 +603,28 @@
                     able to cast the spell before it all falls to corruption?
                   </p>
                 </div>
+                
               </div>
+              <aside class="Card_Aside">
+                  <h2>Idee</h2>
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam sit mollitia, tempora dolores ipsum, iure est, provident ex porro nihil enim id vero. Hic optio accusantium error pariatur velit a!</p>
+                  <h3>Notes:</h3>
+                  <ul class="Note_List">
+                    <li>My Role: Tech Lead and Programmer</li>
+                    <li>Development Time: 2 Weeks</li>
+                    <li>Team Size: 3</li>
+                    <li>Platform: Phaser</li>
+                    <li>Uses browser cookies to store settings</li>
+                  </ul>
+                  <nav class="Aside_Links"></nav>
+                </aside>
             </li>
-            <li>
-              <div class="Card Sandal">
+            <li class="Sandal">
+              <div class="Card">
                 <div class="Title">
                   <h2>Time Sandal (TSOT) <span class="Icon">⌛</span></h2>
                 </div>
-                <div class="Display"></div>
+                <div class="Display"><i class="fa-solid fa-circle-play"></i><iframe class="Game" frameborder="0" src="https://itch.io/embed-upload/8098606?color=333333" allowfullscreen="" width="640" height="380"><a href="https://spaceface54.itch.io/time-sandal-the-sandal-of-time">Play Time Sandal: The Sandal Of Time on itch.io</a></iframe></div>
                 <div class="Type">
                   <h3>2D Puzzle Platformer</h3>
                 </div>
@@ -340,19 +633,32 @@
                     flipping flip-flop. Best expirience on mobile.
                   </p>
                 </div>
+                
               </div>
+              <aside class="Card_Aside">
+                  <h2>Time Sandal, The Sandal of Time</h2>
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam sit mollitia, tempora dolores ipsum, iure est, provident ex porro nihil enim id vero. Hic optio accusantium error pariatur velit a!</p>
+                  <h3>Notes:</h3>
+                  <ul class="Note_List">
+                    <li>My Role: Tech Lead and Programmer</li>
+                    <li>Development Time: 2 Weeks</li>
+                    <li>Team Size: 3</li>
+                    <li>Platform: Phaser</li>
+                    <li>Uses browser cookies to store settings</li>
+                  </ul>
+                  <nav class="Aside_Links"></nav>
+                </aside>
             </li>
           </ul>
         </nav>
       </section>
-      <section class="Contact">
+      <section class="Contact" id = "Contact">
         <h2>Socials & Contact</h2>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero hic
-          nemo nisi, reiciendis rerum magnam obcaecati vero commodi labore
-          cupiditate animi, dignissimos veniam eveniet corporis repellat.
-          Perferendis impedit perspiciatis unde?
-        </p>
+        <nav class="Contact_List">
+          <a class="lb"><i class="fa-solid fa-envelope"></i><span>nchu18866@gmail.com</span></a>
+          <a class="lb"><i class="fa-solid fa-phone-volume"></i><span>+1 (626)-673-0607</span></a>
+          <a href="https://www.linkedin.com/in/nathaniel-chu-496a58311/"class="lb"><i class="fa-brands fa-linkedin"></i><span>linkedin.com/in/nathaniel-chu-496a58311/</span></a>
+        </nav>
       </section>
     </main>
     <footer>
