@@ -104,7 +104,8 @@
         border-color: var(--banner-color);
         margin: 1rem 2rem;
         border-radius: 10px;
-        padding: 0.4rem;
+        padding: 0.6rem;
+        font-style: italic;
         
       }
       :is(main p, .Contact_List, .Resume_Disp, .Note_List, .Card):hover{
@@ -124,7 +125,7 @@
         display: flex;
         gap: 1rem;
       }
-      :is(.lb, .Display i, .fa-circle-xmark):hover{
+      :is(.lb, .Display i, .fa-circle-xmark, .Card_Links a):hover{
         transform: translateY(2px);
 
       }
@@ -134,6 +135,28 @@
         width: 50vw;
         margin: auto;
         margin-top: 10vh;
+      }
+      .About_Me p{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        color: var(--banner-text-color);
+        
+
+      }
+      .Name{
+        font-size: x-large;
+        font-weight: bold;
+        color: black;
+        padding: 0.5rem;
+        font-style: normal;
+      }
+      .Degree{
+        font-size: large;
+        font-weight: bold;
+        color: black;
+        padding: 0.5rem 0 1rem 0;
+        font-style: normal;
       }
       /* -------------------Style Resume--------------- */
       /* -------------------Style Portfolio--------------- */
@@ -173,13 +196,14 @@
         background-image: var(--card-title-color);
         width: 95%;
         margin: auto;
+        padding: 0 1rem;
       }
       .Title h2,
       .Type h3 {
         margin: 0;
         width: 100%;
         text-align: left;
-        padding: 0.3rem 1rem;
+        padding: 0.3rem 0;
         font-weight: bold;
       }
       .Title {
@@ -190,9 +214,22 @@
         justify-content: space-between;
         font-size:larger;
       }
+      .Type{
+        display: flex;
+        justify-content: space-between;
+      }
       .Type h3{
         font-size: medium;
         color: var(--banner-color)
+      }
+      .Card_Links{
+        display: flex;
+        flex-direction: row;
+        gap: 0.4rem;
+      }
+      .Card_Links a{
+        text-decoration: none;
+        padding: 0.3rem 0;
       }
       .fa-circle-xmark{
         display: none;
@@ -246,6 +283,13 @@
       }
       .Card_Aside h2{
         margin: 1rem 0.2rem;
+        margin-bottom: 0.2rem;
+      }
+      .Card_Aside .Card_Links{
+        margin: 0.3rem auto;
+      }
+      .Card_Aside .Card_Links i::before{
+        font-size: x-large;
       }
       .Card_Aside p{
         background-image: none;
@@ -351,6 +395,9 @@
 
       /* Medium 768px*/
       @media screen and (min-width: 768px) {
+        html{
+          font-size: 112%;
+        }
         .About_Me, .Resume, .Portfolio, .Contact{
         padding: 4rem 0rem;
       }
@@ -366,8 +413,7 @@
           grid-row:1;
         }
         .About_Me p{
-          height: 70%;
-          margin: auto;
+          margin: auto 20px;
         }
         .About_Me img{
           width: 30vw;
@@ -475,8 +521,8 @@
         <img src="Images/Portrait.png" alt="Portrait of Nat Chu" />
         <h2>About Me</h2>
         <p>
-          <span class="Name">Nathaniel (Nat) Chu</span><span class="Degree">CS Game Design B.S @ UCSC</span>
-          I'm a Game Dev...etc
+          <span class="Name">Nathaniel (Nat) Chu</span><span class="Degree">CS:Game Design B.S @ UCSC</span>
+          I am a highly motivated & creative game enthusiast, who enjoys the challenge of creating & developing games that are deceptively simple, yet deeply complex. I strive to create immersive expirences through play across mutliple mediums, pushing the boundaries of the design space and my own abilites with each piece. <br><br> Over the the last 4 years, I've been able to craft several games utilizing my skill in UI/UX, Software Development, Systems Design, and Narrative Design - and loved every second of it!
         </p>
       </section>
       <section class="Resume" id="Resume">
@@ -500,7 +546,10 @@
                 </div>
                 <div class="Display"></div>
                 <div class="Type">
-                  <h3>Puzzle Narrative Horror</h3>
+                  <h3>Puzzle Narrative Horror</h3> <nav class="Card_Links">
+                    <a href="https://store.steampowered.com/app/3674920/Markuss_Miasma/" target="_blank"><i class="fa-brands fa-steam"></i></a>
+                    <a href="https://www.instagram.com/progamerstudios/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                  </nav>
                 </div>
                 <p class="Card_Text">
                     Welcome to UCSC! Well, kind of. Explore a twisted version of UCSC, uncovering cryptic clues to piece together the
@@ -510,6 +559,10 @@
               </div>
               <aside class="Card_Aside">
                   <h2>Markus's Miasma</h2>
+                  <nav class="Card_Links">
+                    <a href="https://store.steampowered.com/app/3674920/Markuss_Miasma/" target="_blank"><i class="fa-brands fa-steam"></i></a>
+                    <a href="https://www.instagram.com/progamerstudios/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                  </nav>
                   <p>This isn’t the sunny college campus you remember. Familiar landmarks are warped, the silence is heavy, and the mist hides more than just bad weather. <br><br>You’ll explore eerie paths and unsettling buildings as you piece together the story behind Markus—a guy with a past so dark, it’s bleeding into reality. Solve creepy puzzles, uncover buried memories, and try not to get too lost in the fog (literally and emotionally). </p>
                   <h3>Notes:</h3>
                   <ul class="Note_List">
@@ -519,7 +572,6 @@
                     <li>Platform: Unity</li>
                     <li><strong>Available On Steam</strong></li>
                   </ul>
-                  <nav class="Aside_Links"></nav>
                 </aside>
             </li>
             <li class="Shork">
