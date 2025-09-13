@@ -124,7 +124,7 @@
         display: flex;
         gap: 1rem;
       }
-      .lb:hover{
+      :is(.lb, .Display i, .fa-circle-xmark):hover{
         transform: translateY(2px);
 
       }
@@ -147,6 +147,7 @@
       }
       .Card {
         border-style: solid;
+        position: relative;
         border-radius: 15px;
         border-color: black;
         border-width: 8px;
@@ -193,6 +194,15 @@
         font-size: medium;
         color: var(--banner-color)
       }
+      .fa-circle-xmark{
+        display: none;
+        position: absolute;
+        top: -30px;
+        right: -30px;
+      }
+      .fa-circle-xmark::before{
+        font-size: x-large;
+      }
       .Display {
         aspect-ratio: 1 / 1;
         width: 93%;
@@ -201,19 +211,7 @@
         background-position: center;
         background-size: cover;
       }
-      .Display i{
-        display: flex;
-        width: 100%;
-        height: 100%;
-        justify-content: center;
-        align-items: center;
-      }
-      .Display i::before{
-        display: block;
-        font-size: 150px;
-        text-align: center;
-        color: rgba(138, 138, 138, 0.952);
-      }
+      
       .Card_Text {
         box-shadow: none;
         background-image: none;
@@ -243,6 +241,7 @@
         flex-direction: column;
         align-content: center;
         z-index: 90;
+        overflow-x: scroll;
         /* transform: translateX(-65vw); */
       }
       .Card_Aside h2{
@@ -250,7 +249,9 @@
       }
       .Card_Aside p{
         background-image: none;
+        color: var(--banner-text-color);
         margin: 1rem;
+        padding: 15px;
       }
       .Note_List{
         display: flex; 
@@ -271,6 +272,19 @@
         display: none;
         width: 100%;
         height: 100%;
+      }
+      .Display i{
+        display: none;
+        width: 100%;
+        height: 100%;
+        justify-content: center;
+        align-items: center;
+      }
+      .Display i::before{
+        display: block;
+        font-size: 150px;
+        text-align: center;
+        color: rgba(138, 138, 138, 0.952);
       }
       /* individual cards */
       .Markus .Card{
@@ -301,7 +315,7 @@
         background-image: linear-gradient(to bottom right, #df2b28, #a1660c);
       }
       .Idee .Display{
-        background-image: url("/Images/Idee.png");
+        background-image: url("/Images/hugupo_box_cover.png");
       }
       .Sandal .Card{
         background-image: linear-gradient(to bottom right, #c2a25c, #332819);
@@ -386,7 +400,7 @@
          }
         .Resume{
           width: 60vw;
-          height: 90vw;
+          height: 125vh;
           margin: auto;
         }
         .Resume_Disp{
@@ -406,6 +420,9 @@
         .Port_Items li{
           align-content: center;
         }
+        .Display i{
+          display: flex;
+        }
         .Game{
           display: block;
         }
@@ -413,13 +430,22 @@
           grid-column: 1 / 3;
           grid-row: 1;
         }
+        .Shork .Display{
+          aspect-ratio: 2 / 1.4;
+        }
         .Wizard{
           grid-column: 2 / 4;
           grid-row: 2;
         }
+        .Wizard .Display{
+          aspect-ratio: 2 / 1.4;
+        }
         .Sandal{
           grid-column: 1 / 3;
           grid-row: 3;
+        }
+        .Sandal .Display{
+          aspect-ratio: 2 / 1.4;
         }
         .Contact_List{
           width: 60vw;
@@ -477,22 +503,21 @@
                   <h3>Puzzle Narrative Horror</h3>
                 </div>
                 <p class="Card_Text">
-                    Welcome to UCSC—well, kind of. Explore a twisted version of
-                    UCSC, uncovering cryptic clues to piece together the
+                    Welcome to UCSC! Well, kind of. Explore a twisted version of UCSC, uncovering cryptic clues to piece together the
                     disturbing truth behind one man's obsession.
                   </p>
                 </div>
               </div>
               <aside class="Card_Aside">
                   <h2>Markus's Miasma</h2>
-                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam sit mollitia, tempora dolores ipsum, iure est, provident ex porro nihil enim id vero. Hic optio accusantium error pariatur velit a!</p>
+                  <p>This isn’t the sunny college campus you remember. Familiar landmarks are warped, the silence is heavy, and the mist hides more than just bad weather. <br><br>You’ll explore eerie paths and unsettling buildings as you piece together the story behind Markus—a guy with a past so dark, it’s bleeding into reality. Solve creepy puzzles, uncover buried memories, and try not to get too lost in the fog (literally and emotionally). </p>
                   <h3>Notes:</h3>
                   <ul class="Note_List">
                     <li>My Role: Tech Lead and Programmer</li>
-                    <li>Development Time: 2 Weeks</li>
-                    <li>Team Size: 3</li>
-                    <li>Platform: Phaser</li>
-                    <li>Uses browser cookies to store settings</li>
+                    <li>Development Time: 6 Months</li>
+                    <li>Team Size: 8</li>
+                    <li>Platform: Unity</li>
+                    <li><strong>Available On Steam</strong></li>
                   </ul>
                   <nav class="Aside_Links"></nav>
                 </aside>
@@ -502,7 +527,8 @@
                 <div class="Title">
                   <h2>Shork Tank <span class="Icon">🦈</span></h2>
                 </div>
-                <div class="Display"><i class="fa-solid fa-circle-play"></i><iframe class="Game" frameborder="0" src="https://itch.io/embed-upload/11714188?color=ffffff" allowfullscreen="" width="1152" height="668"><a href="https://spaceface54.itch.io/shork-tank">Play Shork Tank on itch.io</a></iframe></div>
+                <i class="fa-regular fa-circle-xmark"></i>
+                <div class="Display"><i class="fa-solid fa-circle-play"></i></div>
                 <div class="Type">
                   <h3>Feed & Grow-Like Bullet Hell</h3>
                 </div>
@@ -514,14 +540,14 @@
               </div>
               <aside class="Card_Aside">
                   <h2>Shork Tank</h2>
-                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam sit mollitia, tempora dolores ipsum, iure est, provident ex porro nihil enim id vero. Hic optio accusantium error pariatur velit a!</p>
+                  <p> The Feed & Grow bullet hell you've been waiting for! Defend your tank from these interlopers!<br> <br> Created duing a week-long jam, I designed this game to be simple with an increadibly high skill ceiling. Taking inspiration from arcade classics, the game has multiple hidden features and tech, adding to replayability as you chase higher scores. Unlike more traditional bullet hells, the feed & grow mechanic forces the player to engage the enemies directly, balancing health and agression in a complex push & pull. Swim, Eat, Die, Repeat! </p>
                   <h3>Notes:</h3>
                   <ul class="Note_List">
-                    <li>My Role: Tech Lead and Programmer</li>
-                    <li>Development Time: 2 Weeks</li>
+                    <li>My Role: Sole Programmer & Design Lead</li>
+                    <li>Development Time: 1 Week</li>
                     <li>Team Size: 3</li>
-                    <li>Platform: Phaser</li>
-                    <li>Uses browser cookies to store settings</li>
+                    <li>Platform: Godot</li>
+                    <li>Highly Polished & Addicting</li>
                   </ul>
                   <nav class="Aside_Links"></nav>
                 </aside>
@@ -529,7 +555,7 @@
             <li class="OOA">
               <div class="Card">
                 <div class="Title">
-                  <h2>Origin of Anima <span class="Icon">👁️</span></h2>
+                  <h2>Origin of Anima (OOA)<span class="Icon">👁️</span></h2>
                 </div>
                 <div class="Display"></div>
                 <div class="Type">
@@ -544,15 +570,15 @@
                 
               </div>
               <aside class="Card_Aside">
-                  <h2>OOA</h2>
-                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam sit mollitia, tempora dolores ipsum, iure est, provident ex porro nihil enim id vero. Hic optio accusantium error pariatur velit a!</p>
+                  <h2>Origin of Anima</h2>
+                  <p>My longest project to date, a tabletop role-playing game boasting a unique card-based system and an extremely open-ended caracter creation system. Time to do some soul-searching! <br> <br>I designed this game to allow players to learn their own abilities through the course of the game, taking advantage of word-play and personalized player-made abilites. The Force System uses simple mathematics to maintain balance despite the chaos, streamlining storytelling without restricting player expression. This game taught me a considerable amount about Design, Production, Advertisement, Writing, & Narrative, through its development.</p>
                   <h3>Notes:</h3>
                   <ul class="Note_List">
-                    <li>My Role: Tech Lead and Programmer</li>
-                    <li>Development Time: 2 Weeks</li>
+                    <li>My Role: Sole Designer, Writer, and Producer</li>
+                    <li>Development Time: ~3 Years</li>
                     <li>Team Size: 3</li>
-                    <li>Platform: Phaser</li>
-                    <li>Uses browser cookies to store settings</li>
+                    <li>Platform: Physical & Multi-Media</li>
+                    <li>Planned Release Date: Q2 2026</li>
                   </ul>
                   <nav class="Aside_Links"></nav>
                 </aside>
@@ -562,7 +588,8 @@
                 <div class="Title">
                   <h2>Wizard Wobble <span class="Icon">🧙</span></h2>
                 </div>
-                <div class="Display"><i class="fa-solid fa-circle-play"></i><iframe class="Game" frameborder="0" src="https://itch.io/embed-upload/5559068?color=333333" allowfullscreen="" width="640" height="380"><a href="https://spaceface54.itch.io/wizard-wobble">Play Wizard Wobble on itch.io</a></iframe></div>
+                <i class="fa-regular fa-circle-xmark"></i>
+                <div class="Display"><i class="fa-solid fa-circle-play"></i></div>
                 <div class="Type">
                   <h3>Build-It-Yourself Platformer</h3>
                 </div>
@@ -576,14 +603,14 @@
               </div>
               <aside class="Card_Aside">
                   <h2>Wizard Wobble</h2>
-                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam sit mollitia, tempora dolores ipsum, iure est, provident ex porro nihil enim id vero. Hic optio accusantium error pariatur velit a!</p>
+                  <p>Inspired by games like Ultimate Chicken Horse, Wizard Wobble remixes the genre into a challenging infinite 2D-Platformer where you are your own worst enemy.<br> <br>This game was designed with tight platforming at it's heart, with a simple yet compelling gameplay loop. The random selection inspired by Tetris and the precedual generation keeps players on their toes. Further, it boasts 3 obstacles and platforms with intitive yet complex interactions in mind, each refined to work together to create a unique expirence each time you play. </p>
                   <h3>Notes:</h3>
                   <ul class="Note_List">
-                    <li>My Role: Tech Lead and Programmer</li>
-                    <li>Development Time: 2 Weeks</li>
+                    <li>My Role: Designer and Programmer</li>
+                    <li>Development Time: 3 Weeks</li>
                     <li>Team Size: 3</li>
-                    <li>Platform: Phaser</li>
-                    <li>Uses browser cookies to store settings</li>
+                    <li>Platform: Construct</li>
+                    <li>Simple, yet effective and replayable!</li>
                   </ul>
                   <nav class="Aside_Links"></nav>
                 </aside>
@@ -591,30 +618,28 @@
             <li class="Idee">
               <div class="Card">
                 <div class="Title">
-                  <h2>Idee <span class="Icon">✨</span></h2>
+                  <h2>The Haunting of Hu Gu Po <span class="Icon">🐅</span></h2>
                 </div>
                 <div class="Display"></div>
                 <div class="Type">
-                  <h3>Systemic Solo Card Game</h3>
+                  <h3>Tile-Based Board Game</h3>
                 </div>
                 <p class="Card_Text">
-                    Move your eyes, watch the cards, and cast spells. Your goal:
-                    Cast the Ultmate Spell and achive omnipotence. Will you be
-                    able to cast the spell before it all falls to corruption?
+                    Based on the Taiwanese folktale of Hu Gu Po, turn the tables on the Tiger Aunt or puppet the siblings into their own demise!
                   </p>
                 </div>
                 
               </div>
               <aside class="Card_Aside">
-                  <h2>Idee</h2>
-                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam sit mollitia, tempora dolores ipsum, iure est, provident ex porro nihil enim id vero. Hic optio accusantium error pariatur velit a!</p>
+                  <h2>The Haunting of Hu Gu Po</h2>
+                  <p>Inspired by games like Betrayal the House on the Hill, 4 players place tiles to explore and ever-evolving house. This game was designed to be a tense, asymmetric competitve strategy board game, where the players must juggle cards, actions, communication, and positioning to sucseed. <br><br>The siblings must try to work together, using their complementary abilites to avoid the Tiger Aunt's traps and schemes.</p>
                   <h3>Notes:</h3>
                   <ul class="Note_List">
-                    <li>My Role: Tech Lead and Programmer</li>
-                    <li>Development Time: 2 Weeks</li>
-                    <li>Team Size: 3</li>
-                    <li>Platform: Phaser</li>
-                    <li>Uses browser cookies to store settings</li>
+                    <li>My Role: Designer</li>
+                    <li>Development Time: 3 Weeks</li>
+                    <li>Team Size: 4</li>
+                    <li>Platform: Physical</li>
+                    <li>Engaging strategy board game expirence! Fun for the whole family!</li>
                   </ul>
                   <nav class="Aside_Links"></nav>
                 </aside>
@@ -624,7 +649,8 @@
                 <div class="Title">
                   <h2>Time Sandal (TSOT) <span class="Icon">⌛</span></h2>
                 </div>
-                <div class="Display"><i class="fa-solid fa-circle-play"></i><iframe class="Game" frameborder="0" src="https://itch.io/embed-upload/8098606?color=333333" allowfullscreen="" width="640" height="380"><a href="https://spaceface54.itch.io/time-sandal-the-sandal-of-time">Play Time Sandal: The Sandal Of Time on itch.io</a></iframe></div>
+                <i class="fa-regular fa-circle-xmark"></i>
+                <div class="Display"><i class="fa-solid fa-circle-play"></i></div>
                 <div class="Type">
                   <h3>2D Puzzle Platformer</h3>
                 </div>
@@ -637,14 +663,14 @@
               </div>
               <aside class="Card_Aside">
                   <h2>Time Sandal, The Sandal of Time</h2>
-                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam sit mollitia, tempora dolores ipsum, iure est, provident ex porro nihil enim id vero. Hic optio accusantium error pariatur velit a!</p>
+                  <p>Flip-flop between the present and future to explore an ancient temple! <br><br>Designed with mobile-users in mind, this game features 3 levels of time-warping puzzles. My first foray into puzzle design, I worked to ensure each level teaches the player something new, building on the mechanics of previous levels. I also used familiar objects to make their functions intuitive, keeping the game almost entirely tutorial free.</p>
                   <h3>Notes:</h3>
                   <ul class="Note_List">
                     <li>My Role: Tech Lead and Programmer</li>
                     <li>Development Time: 2 Weeks</li>
                     <li>Team Size: 3</li>
                     <li>Platform: Phaser</li>
-                    <li>Uses browser cookies to store settings</li>
+                    <li>Web game with a mobile-centric design</li>
                   </ul>
                   <nav class="Aside_Links"></nav>
                 </aside>
@@ -655,8 +681,8 @@
       <section class="Contact" id = "Contact">
         <h2>Socials & Contact</h2>
         <nav class="Contact_List">
-          <a class="lb"><i class="fa-solid fa-envelope"></i><span>nchu18866@gmail.com</span></a>
-          <a class="lb"><i class="fa-solid fa-phone-volume"></i><span>+1 (626)-673-0607</span></a>
+          <a class="lb Copyable" ><i class="fa-solid fa-envelope"></i><span>nchu18866@gmail.com</span></a>
+          <a class="lb Copyable" ><i class="fa-solid fa-phone-volume"></i><span>+1 (626)-673-0607</span></a>
           <a href="https://www.linkedin.com/in/nathaniel-chu-496a58311/"class="lb"><i class="fa-brands fa-linkedin"></i><span>linkedin.com/in/nathaniel-chu-496a58311/</span></a>
         </nav>
       </section>
